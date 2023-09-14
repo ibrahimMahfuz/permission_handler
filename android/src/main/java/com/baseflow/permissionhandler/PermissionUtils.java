@@ -56,11 +56,16 @@ public class PermissionUtils {
                 return PermissionConstants.PERMISSION_GROUP_SMS;
             case Manifest.permission.READ_EXTERNAL_STORAGE:
             case Manifest.permission.WRITE_EXTERNAL_STORAGE:
+            case Manifest.permission.READ_MEDIA_IMAGES:
+            case Manifest.permission.READ_MEDIA_VIDEO:
+            case Manifest.permission.READ_MEDIA_AUDIO:
                 return PermissionConstants.PERMISSION_GROUP_STORAGE;
             case Manifest.permission.ACCESS_MEDIA_LOCATION:
                 return PermissionConstants.PERMISSION_GROUP_ACCESS_MEDIA_LOCATION;
             case Manifest.permission.ACTIVITY_RECOGNITION:
                 return PermissionConstants.PERMISSION_GROUP_ACTIVITY_RECOGNITION;
+            case Manifest.permission.POST_NOTIFICATIONS:
+                return PermissionConstants.PERMISSION_GROUP_NOTIFICATION;
             default:
                 return PermissionConstants.PERMISSION_GROUP_UNKNOWN;
         }
@@ -177,6 +182,15 @@ public class PermissionUtils {
 
                 if (hasPermissionInManifest(context, permissionNames, Manifest.permission.WRITE_EXTERNAL_STORAGE))
                     permissionNames.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+
+                if (Build.VERSION.SDK_INT >= 33 && hasPermissionInManifest(context, permissionNames, Manifest.permission.READ_MEDIA_IMAGES))
+                    permissionNames.add(Manifest.permission.READ_MEDIA_IMAGES);
+
+                if (Build.VERSION.SDK_INT >= 33 && hasPermissionInManifest(context, permissionNames, Manifest.permission.READ_MEDIA_VIDEO))
+                    permissionNames.add(Manifest.permission.READ_MEDIA_VIDEO);
+
+                if (Build.VERSION.SDK_INT >= 33 && hasPermissionInManifest(context, permissionNames, Manifest.permission.READ_MEDIA_AUDIO))
+                    permissionNames.add(Manifest.permission.READ_MEDIA_AUDIO);
                 break;
 
             case PermissionConstants.PERMISSION_GROUP_IGNORE_BATTERY_OPTIMIZATIONS:
