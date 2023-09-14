@@ -195,8 +195,8 @@ public class PermissionUtils {
                 break;
 
             case PermissionConstants.PERMISSION_GROUP_NOTIFICATION:
-                if (Build.VERSION.SDK_INT >= 33 && hasPermissionInManifest(context, permissionNames, Manifest.permission.POST_NOTIFICATIONS))
-                    permissionNames.add(Manifest.permission.POST_NOTIFICATIONS);
+                if (Build.VERSION.SDK_INT >= 33 && hasPermissionInManifest(context, permissionNames, android.Manifest.permission.POST_NOTIFICATIONS))
+                    permissionNames.add(android.Manifest.permission.POST_NOTIFICATIONS);
                 break;
             case PermissionConstants.PERMISSION_GROUP_MEDIA_LIBRARY:
             case PermissionConstants.PERMISSION_GROUP_PHOTOS:
